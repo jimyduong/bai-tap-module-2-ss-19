@@ -34,6 +34,9 @@ class CustomerController extends Controller
             $path = $file->store('images', 'public');
             $customer->avatar = $path;
         }
+        else{
+            $customer->avatar='images/6uS8z9O6snM7GBEEq34LZw1iqx8Ioc548gsAuKJt.png';
+        }
         $customer->save();
         return redirect()->route('customers.index');
     }
@@ -45,12 +48,17 @@ class CustomerController extends Controller
         return view('edit', compact('customer'));
     }
 
-    public function update(UpdateCustomerRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $customer = Customers::findOrFail($id);
         $customer->name = $request->name;
         $customer->address = $request->address;
         $customer->email = $request->email;
+        if ($request->hasFile('inputFile')) {
+            $file = $request->inputFile;
+            $path = $file->store('images', 'public');
+            $customer->avatar = $path;
+        }
         $customer->save();
         return redirect()->route('customers.index');
     }

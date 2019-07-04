@@ -38,7 +38,7 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <img id="image" alt="your image" width="100" height="100"/>
+                        <img src={{asset('storage/images/6uS8z9O6snM7GBEEq34LZw1iqx8Ioc548gsAuKJt.png')}} id="image" alt="your image" width="100" height="100"/>
 
                         <input type="file"
                                onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"

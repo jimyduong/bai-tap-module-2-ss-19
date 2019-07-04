@@ -27,7 +27,7 @@ class CreateCustomerRequest extends FormRequest
             'name'=>'required|regex:/^[A-ZÀÂÇÉÈÊËÎÏÔÛÙÜŸÑÆŒa-zàâçéèêëîïôûùüÿñæœ0-9 ]+$/',
             'address'=>'required',
             'email'=>'required|unique:customers,email',
-            'inputFile'=>'mimes:jpeg,jpg,png'
+            'inputFile'=>'nullable|mimes:jpeg,jpg,png'
         ];
     }
 }

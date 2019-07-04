@@ -27,6 +27,7 @@ class UpdateCustomerRequest extends FormRequest
             'name'=>'required|regex:/^[A-ZÀÂÇÉÈÊËÎÏÔÛÙÜŸÑÆŒa-zàâçéèêëîïôûùüÿñæœ0-9 ]+$/',
             'address'=>'required',
             'email'=>"unique:customers,email,$this->id,id",
+            'inputFile'=>'mimes:jpeg,jpg,png'
         ];
     }
 }
